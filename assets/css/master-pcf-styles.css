@@ -1,0 +1,756 @@
+/* ====================================
+   Master PCF Styles - Consolidated CSS
+   ==================================== */
+
+/* ====================================
+   1. CSS Variables & Root Configuration
+   ==================================== */
+:root {
+  /* Primary Brand Colors */
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #dbeafe;
+  --primary-lighter: #eff6ff;
+  
+  /* Secondary Brand Colors */
+  --secondary-color: #FF6B35;
+  --secondary-hover: #E55A2B;
+  --secondary-light: rgba(255, 107, 53, 0.08);
+  
+  /* Neutral Colors */
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Status Colors */
+  --success-color: #10b981;
+  --success-bg: #d1fae5;
+  --success-light: #f0fdf4;
+  --warning-color: #f59e0b;
+  --warning-bg: #fef3c7;
+  --warning-light: #fffbeb;
+  --error-color: #ef4444;
+  --error-bg: #fee2e2;
+  --error-light: #fef2f2;
+  --info-color: #3b82f6;
+  --info-bg: #dbeafe;
+  
+  /* Typography */
+  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}
+
+/* ====================================
+   2. Base Styles & Resets
+   ==================================== */
+.pcf-component {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.pcf-component * {
+  box-sizing: border-box;
+}
+
+/* ====================================
+   3. Common Components
+   ==================================== */
+
+/* Buttons */
+.pcf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.pcf-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pcf-btn-primary {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.pcf-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pcf-btn-secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.pcf-btn-secondary:hover:not(:disabled) {
+  background: var(--gray-200);
+}
+
+.pcf-btn-accent {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+.pcf-btn-accent:hover:not(:disabled) {
+  background: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+}
+
+/* Cards */
+.pcf-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.pcf-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.pcf-card-header {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.pcf-card-body {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+}
+
+.pcf-card-footer {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-top: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+/* Status Badges */
+.pcf-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pcf-badge-success {
+  background: var(--success-bg);
+  color: #059669;
+}
+
+.pcf-badge-warning {
+  background: var(--warning-bg);
+  color: #d97706;
+}
+
+.pcf-badge-error {
+  background: var(--error-bg);
+  color: #dc2626;
+}
+
+.pcf-badge-info {
+  background: var(--info-bg);
+  color: var(--primary-color);
+}
+
+/* Form Elements */
+.pcf-form-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.pcf-label {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-sm);
+}
+
+.pcf-input,
+.pcf-select,
+.pcf-textarea {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+  background: var(--white);
+}
+
+.pcf-input:focus,
+.pcf-select:focus,
+.pcf-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Progress Bars */
+.pcf-progress {
+  background: var(--gray-200);
+  height: 8px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pcf-progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width var(--transition-slow);
+}
+
+/* Modals */
+.pcf-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.pcf-modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pcf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-2xl);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.pcf-modal-body {
+  flex: 1;
+  padding: var(--spacing-2xl);
+  overflow-y: auto;
+}
+
+.pcf-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-top: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+/* ====================================
+   4. Component-Specific Styles
+   ==================================== */
+
+/* Course Card Component */
+.course-card-container {
+  composes: pcf-component;
+}
+
+.unified-course-card {
+  composes: pcf-card;
+}
+
+.course-card-placeholder {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Drawer Navigation Component */
+.mega-nav-container {
+  font-family: var(--font-family);
+  background-color: var(--white);
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.mega-nav-link,
+.mega-nav-trigger {
+  padding: 0 var(--spacing-lg);
+  margin: 0 2px;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--gray-700);
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.mega-nav-link:hover,
+.mega-nav-trigger:hover {
+  background-color: var(--gray-50);
+  color: var(--gray-900);
+}
+
+.mega-nav-link.active {
+  color: var(--primary-color);
+  background-color: var(--gray-50);
+  font-weight: 600;
+}
+
+/* NPS Dashboard Component */
+.nps-dashboard {
+  composes: pcf-component;
+  overflow: hidden;
+}
+
+.nps-dashboard ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.nps-dashboard ::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 3px;
+}
+
+.nps-dashboard ::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 3px;
+}
+
+.nps-dashboard ::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* Review Manager Component */
+.review-manager {
+  composes: pcf-component;
+  background-color: var(--gray-50);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.rm-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.rm-nav-button {
+  composes: pcf-btn pcf-btn-secondary;
+}
+
+.rm-nav-button.active {
+  color: var(--secondary-color);
+  background: var(--secondary-light);
+  font-weight: 600;
+}
+
+.rm-timeline-card {
+  composes: pcf-card;
+  margin-left: var(--spacing-lg);
+}
+
+.rm-status-badge {
+  composes: pcf-badge;
+}
+
+.rm-status-badge.completed {
+  composes: pcf-badge-success;
+}
+
+.rm-status-badge.active {
+  composes: pcf-badge-info;
+}
+
+.rm-status-badge.pending {
+  composes: pcf-badge-error;
+}
+
+.rm-status-badge.scheduled {
+  composes: pcf-badge-warning;
+}
+
+/* StratCharts Component */
+.stratcharts-container {
+  composes: pcf-component;
+  position: relative;
+  overflow: hidden;
+}
+
+.stratcharts-loading,
+.stratcharts-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+}
+
+.stratcharts-error {
+  color: var(--error-color);
+}
+
+/* StratKPI Component */
+.stratkpi-container {
+  composes: pcf-component;
+}
+
+.kpi-card {
+  composes: pcf-card;
+  cursor: pointer;
+}
+
+/* StratTable Component */
+.strattable-container {
+  composes: pcf-component;
+  background-color: var(--white);
+}
+
+.strattable-export-btn {
+  composes: pcf-btn;
+  background: #B0C5BE;
+  color: var(--white);
+  font-size: var(--font-size-sm);
+}
+
+.strattable-export-btn:hover {
+  background: #A0B5AE;
+}
+
+/* SharePoint Uploader Component */
+.sharepoint-uploader {
+  composes: pcf-component;
+  background-color: var(--gray-50);
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-button {
+  composes: pcf-btn pcf-btn-primary;
+}
+
+.modal-content {
+  composes: pcf-modal;
+}
+
+.button {
+  composes: pcf-btn;
+}
+
+.button-primary {
+  composes: pcf-btn-primary;
+}
+
+.button-secondary {
+  composes: pcf-btn-secondary;
+}
+
+/* ====================================
+   5. Utility Classes
+   ==================================== */
+
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Font Weight */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Font Size */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+
+/* Colors */
+.text-gray-400 { color: var(--gray-400); }
+.text-gray-500 { color: var(--gray-500); }
+.text-gray-600 { color: var(--gray-600); }
+.text-gray-700 { color: var(--gray-700); }
+.text-gray-800 { color: var(--gray-800); }
+.text-gray-900 { color: var(--gray-900); }
+
+/* Background Colors */
+.bg-white { background-color: var(--white); }
+.bg-gray-50 { background-color: var(--gray-50); }
+.bg-gray-100 { background-color: var(--gray-100); }
+.bg-gray-200 { background-color: var(--gray-200); }
+
+/* Spacing */
+.m-0 { margin: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+/* Display */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-inline-flex { display: inline-flex; }
+
+/* Flexbox */
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.gap-1 { gap: var(--spacing-xs); }
+.gap-2 { gap: var(--spacing-sm); }
+.gap-3 { gap: var(--spacing-md); }
+.gap-4 { gap: var(--spacing-lg); }
+
+/* Border Radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Transitions */
+.transition-fast { transition: all var(--transition-fast); }
+.transition { transition: all var(--transition-base); }
+.transition-slow { transition: all var(--transition-slow); }
+
+/* ====================================
+   6. Animations
+   ==================================== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* ====================================
+   7. Responsive Design
+   ==================================== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 13px;
+    --font-size-lg: 15px;
+    --font-size-xl: 17px;
+    --font-size-2xl: 19px;
+    --font-size-3xl: 22px;
+  }
+  
+  .pcf-modal {
+    width: 95%;
+    margin: var(--spacing-md);
+  }
+  
+  /* Stack columns on mobile */
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pcf-component {
+    border: 2px solid currentColor;
+  }
+  
+  .pcf-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Print styles */
+@media print {
+  .pcf-component * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ====================================
+   8. Custom Scrollbar (Webkit)
+   ==================================== */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-base);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* ====================================
+   9. Focus States (Accessibility)
+   ==================================== */
+.pcf-component *:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.pcf-component button:focus-visible,
+.pcf-component a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
